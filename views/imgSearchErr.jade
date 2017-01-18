@@ -1,0 +1,28 @@
+extends layout
+
+block content
+  div
+    h1 Image Search Abstraction Layer
+    h3 User stories:
+    ol
+      li I can get the image URLs for a set of images relating to a given search string.
+      li I can paginate through the responses by adding a ?offset=2 parameter to the URL.
+      li I can get a list of the most recently submitted search strings.
+    h3 How to search an image:
+    label.bold https://imagesearchapi-pepetata.c9users.io/imagesearch/mad%20cat?offset=2
+    h3 The result is like this
+    label.bold [{"url": "http://2.bp.blogspot.com/-F9Zlve6QRy4/VD0G5aML0OI/AAAAAAAAFfc/AEJBhX6V8cs/s1600/mad%2Bcat.jpg",
+    label.bold "thumbnail": "https://encrypted-tbn3.gstatic.com/images?q=tbn:ANd9GcQYgyYHmjtp4HHUEoaHOClKFtW8QqlbyESMWhJOVV4pVvBqsng8ZijLL0A"},
+    label.bold {"url": "https://i.ytimg.com/vi/tvJMia11QLw/hqdefault.jpg",
+    label.bold "thumbnail": "https://encrypted-tbn1.gstatic.com/images?q=tbn:ANd9GcROSSYLXckLQ1GE2n_KYvUR7IOJWIXcxu_t-NcG17axe9uON8JFpW2GLHk"}]
+    h3 To get a list of the most recently submitted search strings:
+    label.bold https://imagesearchapi-pepetata.c9users.io/lastsearchs
+    br
+    br
+    br
+    br
+  footer
+    p Running on node with Express, Jade and Stylus
+    p Inspired by Flavio Ferreira
+      
+    

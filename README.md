@@ -1,22 +1,28 @@
+Image Search Abstraction Layer
 
-     ,-----.,--.                  ,--. ,---.   ,--.,------.  ,------.
-    '  .--./|  | ,---. ,--.,--. ,-|  || o   \  |  ||  .-.  \ |  .---'
-    |  |    |  || .-. ||  ||  |' .-. |`..'  |  |  ||  |  \  :|  `--, 
-    '  '--'\|  |' '-' ''  ''  '\ `-' | .'  /   |  ||  '--'  /|  `---.
-     `-----'`--' `---'  `----'  `---'  `--'    `--'`-------' `------'
-    ----------------------------------------------------------------- 
+User stories:
+
+I can get the image URLs for a set of images relating to a given search string.
+I can paginate through the responses by adding a ?offset=2 parameter to the URL.
+I can get a list of the most recently submitted search strings.
 
 
-Welcome to your Node.js project on Cloud9 IDE!
+How to search an image:
 
-This chat example showcases how to use `socket.io` with a static `express` server.
+https://imagesearchapi-pepetata.c9users.io/imagesearch/mad%20cat?offset=2
 
-## Running the server
 
-1) Open `server.js` and start the app by clicking on the "Run" button in the top menu.
+The result is like this
 
-2) Alternatively you can launch the app from the Terminal:
+[{"url": "http://2.bp.blogspot.com/-F9Zlve6QRy4/VD0G5aML0OI/AAAAAAAAFfc/AEJBhX6V8cs/s1600/mad%2Bcat.jpg","thumbnail": "https://encrypted-tbn3.gstatic.com/images?q=tbn:ANd9GcQYgyYHmjtp4HHUEoaHOClKFtW8QqlbyESMWhJOVV4pVvBqsng8ZijLL0A"},{"url": "https://i.ytimg.com/vi/tvJMia11QLw/hqdefault.jpg","thumbnail": "https://encrypted-tbn1.gstatic.com/images?q=tbn:ANd9GcROSSYLXckLQ1GE2n_KYvUR7IOJWIXcxu_t-NcG17axe9uON8JFpW2GLHk"}]
 
-    $ node server.js
 
-Once the server is running, open the project in the shape of 'https://projectname-username.c9users.io/'. As you enter your name, watch the Users list (on the left) update. Once you press Enter or Send, the message is shared with all connected clients.
+To get a list of the most recently submitted search strings:
+
+https://imagesearchapi-pepetata.c9users.io/lastsearchs
+
+
+
+Running on node with Express, Jade and Stylus
+
+Inspired by Flavio Ferreira

@@ -1,19 +1,41 @@
-var google = require('google')
- 
-google.resultsPerPage = 25
-var nextCounter = 0
- 
-google('node.js best practices', function (err, res){
-  if (err) console.error(err)
- 
-  for (var i = 0; i < res.links.length; ++i) {
-    var link = res.links[i];
-    console.log(link.title + ' - ' + link.href)
-    console.log(link.description + "\n")
+var express = require('express')
+        , stylus = require('stylus')
+        , path = require('path')
+        , MongoClient = require('mongodb').MongoClient
+        , api = require("./api/imagesearch.js")
+        , app = express()
+        , url
+        , db
+        , result
+        , surl
+        , urldoc
+        , urls
+        , counters
+        , ref
+        , origurl
+
+
+app.set('views', path.join(__dirname, 'views'));
+app.set('view engine', 'stylus');
+app.use(express.static(path.join(__dirname, 'views')));
+app.use(stylus.middleware(path.join(__dirname, 'views')));
+
+
+
+// Connect to the db
+MongoClient.connect("mongodb://localhost:27017/db", function (err, database) {
+  if (!err) {
+    console.log("MongoDB connected to port 27017");
   }
- 
-  if (nextCounter < 4) {
-    nextCounter += 1
-    if (res.next) res.next()
-  }
-})
+  db = database
+  api(app,db)
+
+  var port = process.env.PORT || 8080;
+  app.listen(port, function () {
+    console.log('App listening on port '+port+' !')
+  })
+  
+  
+  
+});
+
